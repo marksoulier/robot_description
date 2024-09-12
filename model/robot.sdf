@@ -1,0 +1,312 @@
+<sdf version="1.6">
+<model name="robot" canonical_link='base_link'>
+  <static>false</static>
+  <pose relative_to='world'>0 0 0 0 0 0</pose>
+  <link name="base_link">
+    <pose relative_to='__model__'>0 0 0.5 0 0 0</pose>
+    <collision name='base_link collision'>
+      <geometry>
+        <box>
+          <size>1 1 0.5</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='base_link visual'>
+      <geometry>
+        <box>
+          <size>1 1 0.5</size>
+        </box>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.783537791521566 0.09305896283800832 0.2663556047920505 1</ambient>
+      <diffuse>0.783537791521566 0.09305896283800832 0.2663556047920505 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.16666666666666666</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.16666666666666666</iyy>
+        <iyz>0</iyz>
+        <izz>0.16666666666666666</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <link name="cylinder1">
+    <pose relative_to='base_link'>0 0 0.49921830571811965 1.5707963267948963 0 0</pose>
+    <collision name='cylinder1 collision'>
+      <geometry>
+        <cylinder>
+          <radius>0.5</radius>
+          <length>1</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name='cylinder1 visual'>
+      <geometry>
+        <cylinder>
+          <radius>0.5</radius>
+          <length>1</length>
+        </cylinder>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.008568125615105716 0.9734452903978066 0.22322795730611386 1</ambient>
+      <diffuse>0.008568125615105716 0.9734452903978066 0.22322795730611386 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.3333333333333333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.5</iyy>
+        <iyz>0</iyz>
+        <izz>0.3333333333333333</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="base_link_to_cylinder1" type="revolute">
+    <pose relative_to='cylinder1'>0 0 0 0 0 0 </pose>
+    <parent>base_link</parent>
+    <child>cylinder1</child>
+    <axis>
+        <xyz expressed_in='cylinder1'>0 0 1</xyz>
+        <limit>            <lower>-1</lower>            <upper>1</upper>        </limit>
+    </axis>
+  </joint>
+  <link name="cube2">
+    <pose relative_to='cylinder1'>0 1.3965994545275549 2.7755575615628914e-16 -1.5707963267948963 0 0</pose>
+    <collision name='cube2 collision'>
+      <geometry>
+        <box>
+          <size>0.5 0.5 2</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='cube2 visual'>
+      <geometry>
+        <box>
+          <size>0.5 0.5 2</size>
+        </box>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.21952619971859377 0.07036009568874305 0.2917706498067336 1</ambient>
+      <diffuse>0.21952619971859377 0.07036009568874305 0.2917706498067336 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.16666666666666666</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.16666666666666666</iyy>
+        <iyz>0</iyz>
+        <izz>0.16666666666666666</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="cylinder1_to_cube2" type="fixed">
+    <pose relative_to='cube2'>0 0 0 0 0 0 </pose>
+    <parent>cylinder1</parent>
+    <child>cube2</child>
+  </joint>
+  <link name="cylinder1-copy0">
+    <pose relative_to='cube2'>0 -3.255161796279601e-17 1.3082192344265438 1.5707963267948963 0 0</pose>
+    <collision name='cylinder1-copy0 collision'>
+      <geometry>
+        <cylinder>
+          <radius>0.5</radius>
+          <length>1</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name='cylinder1-copy0 visual'>
+      <geometry>
+        <cylinder>
+          <radius>0.5</radius>
+          <length>1</length>
+        </cylinder>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.008568125615105716 0.9734452903978066 0.22322795730611386 1</ambient>
+      <diffuse>0.008568125615105716 0.9734452903978066 0.22322795730611386 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.3333333333333333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.5</iyy>
+        <iyz>0</iyz>
+        <izz>0.3333333333333333</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="cube2_to_cylinder1-copy0" type="revolute">
+    <pose relative_to='cylinder1-copy0'>0 0 0 0 0 0 </pose>
+    <parent>cube2</parent>
+    <child>cylinder1-copy0</child>
+    <axis>
+        <xyz expressed_in='cylinder1-copy0'>0 0 1</xyz>
+        <limit>            <lower>-1</lower>            <upper>1</upper>        </limit>
+    </axis>
+  </joint>
+  <link name="cube2-copy0">
+    <pose relative_to='cylinder1-copy0'>0 1.3965994545275549 2.7755575615628914e-16 -1.5707963267948963 0 0</pose>
+    <collision name='cube2-copy0 collision'>
+      <geometry>
+        <box>
+          <size>0.5 0.5 2</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='cube2-copy0 visual'>
+      <geometry>
+        <box>
+          <size>0.5 0.5 2</size>
+        </box>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.21952619971859377 0.07036009568874305 0.2917706498067336 1</ambient>
+      <diffuse>0.21952619971859377 0.07036009568874305 0.2917706498067336 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.16666666666666666</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.16666666666666666</iyy>
+        <iyz>0</iyz>
+        <izz>0.16666666666666666</izz>
+      </inertia>
+    </inertial>
+  </link>
+  <joint name="cylinder1-copy0_to_cube2-copy0" type="fixed">
+    <pose relative_to='cube2-copy0'>0 0 0 0 0 0 </pose>
+    <parent>cylinder1-copy0</parent>
+    <child>cube2-copy0</child>
+  </joint>
+  <link name="camera_link">
+    <pose relative_to='cube2-copy0'>-0.2929320622248368 0.001887887757991127 1.04034649007794 1.8521237935984154e-16 0.6800000000000002 -1.727159822628795e-16</pose>
+    <collision name='camera_link collision'>
+      <geometry>
+        <box>
+          <size>0.0254 0.1 0.0254</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='camera_link visual'>
+      <geometry>
+        <box>
+          <size>0.0254 0.1 0.0254</size>
+        </box>
+      </geometry>
+    </visual>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Red</name>
+      </script>
+      <ambient>0.8468732315065057 0.8468732315065057 0.8468732315065057 1</ambient>
+      <diffuse>0.8468732315065057 0.8468732315065057 0.8468732315065057 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 1</emissive>
+    </material>
+    <inertial>
+      <mass>1</mass>
+      <inertia>
+        <ixx>0.16666666666666666</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.16666666666666666</iyy>
+        <iyz>0</iyz>
+        <izz>0.16666666666666666</izz>
+      </inertia>
+    </inertial>
+
+    <sensor name="camera_link_realsense_camera" type="camera">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <camera name="camera_link_camera">
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+                <width>1920</width>
+                <height>1080</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip>
+                <near>0.105</near>
+                <far>10</far>
+            </clip>
+            <noise>
+                <type>gaussian</type>
+                <mean>0</mean>
+                <stddev>0.007</stddev>
+            </noise>
+        </camera>
+        <plugin name="camera_driver_for_camera_link" filename="libgazebo_ros_camera.so">
+            <ros>
+                <!-- <namespace>test_cam</namespace> -->
+                <!-- <remapping>image_raw:=image_demo</remapping> -->
+                <!-- <remapping>camera_info:=camera_info_demo</remapping> -->
+            </ros>
+            <!-- <camera_name>omit so it defaults to sensor name</camera_name> -->
+            <!-- <frame_name>omit so it defaults to link name</frameName> -->
+            <!-- <hack_baseline>0.07</hack_baseline> -->
+        </plugin>
+    </sensor>
+  </link>
+  <joint name="cube2-copy0_to_camera_link" type="fixed">
+    <pose relative_to='camera_link'>0 0 0 0 0 0 </pose>
+    <parent>cube2-copy0</parent>
+    <child>camera_link</child>
+  </joint>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <ros>
+            <remapping>~/out:=/joint_states</remapping>
+        </ros>
+        <update_rate>5</update_rate>
+       <joint_name>base_link_to_cylinder1</joint_name>
+       <joint_name>cube2_to_cylinder1-copy0</joint_name>
+    </plugin>
+</model>
+</sdf>
